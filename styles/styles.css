@@ -1,0 +1,221 @@
+:root {
+  --background: white;
+  --allItems: #161625;
+  --switchColor: black;
+  --switchButton: #fff;
+}
+
+[data-theme="dark"] {
+  --background: #161625;
+  --allItems: white;
+  --switchColor: #fff;
+  --switchButton: black;
+}
+
+body {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 17pt;
+  font-weight: 300;
+  line-height: 1.65;
+  margin-top: 100px;
+  background: var(--background);
+}
+
+h1,
+h2,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto 1fr;
+  grid-gap: 20px;
+  margin: 0 auto;
+  width: 30em;
+  position: relative;
+}
+
+.theme {
+  color: var(--allItems);
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 20px;
+  justify-items: left;
+  align-items: center;
+}
+
+a {
+  display: inline-block;
+  background: var(--allItems);
+  text-decoration: none;
+  padding: 0 1.2em;
+  border-radius: 8px;
+  height: 2.25em;
+  line-height: 2.25em;
+  transition: font-size 0.2s ease;
+  cursor: pointer;
+  width: 20%;
+  color: var(--switchButton);
+}
+
+a:active {
+  padding: 0 16px;
+}
+
+.game-screen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.main {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.line {
+  position: absolute;
+  background-color: var(--allItems);
+  width: 10px;
+  height: 100vh;
+  transform: rotate(-45deg);
+}
+
+.box {
+  color: var(--allItems);
+  height: 170px;
+  text-align: center;
+  display: grid;
+  grid-auto-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+
+/* .game-screen:before {
+  content: "";
+  display: block;
+  transform: rotate(-45deg);
+  background: var(--allItems);
+  height: 100px;
+  width: 10px;
+} */
+
+div.game-screen > div:nth-child(2),
+div.game-screen > div:nth-child(5),
+div.game-screen > div:nth-child(8) {
+  border-left: 10px solid var(--allItems);
+}
+
+div.game-screen > div:nth-child(2),
+div.game-screen > div:nth-child(5),
+div.game-screen > div:nth-child(8) {
+  border-right: 10px solid var(--allItems);
+}
+
+div.game-screen > div:nth-child(4),
+div.game-screen > div:nth-child(5),
+div.game-screen > div:nth-child(6) {
+  border-top: 10px solid var(--allItems);
+}
+
+div.game-screen > div:nth-child(4),
+div.game-screen > div:nth-child(5),
+div.game-screen > div:nth-child(6) {
+  border-bottom: 10px solid var(--allItems);
+}
+
+.O {
+  position: absolute;
+  height: 100px;
+  width: 45%;
+  border-radius: 100%;
+  border: 10px solid var(--allItems);
+  display: grid;
+  pointer-events: none;
+}
+
+.X {
+  display: grid;
+  position: relative;
+  pointer-events: none;
+}
+
+.X:before {
+  content: "";
+  display: block;
+  transform: rotate(-45deg);
+  background: var(--allItems);
+  height: 100px;
+  width: 10px;
+}
+
+.X:after {
+  content: "";
+  display: block;
+  transform: rotate(45deg);
+  background: var(--allItems);
+  height: 100px;
+  width: 10px;
+  position: absolute;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: var(--switchColor);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: var(--switchButton);
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: var(--allItems);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+h2 {
+  color: var(--allItems);
+  font-size: 1.2em;
+  text-align: center;
+}
