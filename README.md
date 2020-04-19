@@ -1,3 +1,3 @@
 # tic-to
 A simple tic game 
-# https://spectrumsun.github.io/tic-to/
+### https://spectrumsun.github.io/tic-to/
